@@ -20,5 +20,5 @@ Dokumen ini berisi 8 skenario pengujian manual wajib untuk aplikasi **NutriTrack
 ---
 
 ### 📝 Catatan Tambahan Pengujian:
-- Seluruh pengujian di atas dilakukan secara manual pada emulator Android Studio (API 34/35).
+- Seluruh pengujian di atas dilakukan secara manual pada perangkat android kami.
 - Penanganan angka desimal dengan koma (misal `1,5`) otomatis dikonversi menjadi `1.5` tanpa memicu crash.

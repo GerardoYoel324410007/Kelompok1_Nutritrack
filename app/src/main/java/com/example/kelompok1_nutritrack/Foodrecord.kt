@@ -35,5 +35,5 @@ data class FoodRecord(
     val foodGroup: FoodGroup,    // 3. Kelompok makanan
     val portion: Double,         // 4. Jumlah porsi sederhana (Numerik)
     val notes: String,           // 5. Catatan
-    val timestamp: String = currentTimeLabel()
+    val timestamp: String = currentTimeLabel(),
 )

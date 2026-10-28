@@ -3,6 +3,7 @@ package com.example.kelompok1_nutritrack
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
 
@@ -13,12 +14,13 @@ private val NutriTrackColorScheme = lightColorScheme(
     tertiary = StitchColors.Tertiary,
     background = StitchColors.Surface,
     surface = StitchColors.Surface,
-    error = StitchColors.Error
+    error = StitchColors.Error,
 )
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
             MaterialTheme(colorScheme = NutriTrackColorScheme) {
                 NutriTrackScreen()

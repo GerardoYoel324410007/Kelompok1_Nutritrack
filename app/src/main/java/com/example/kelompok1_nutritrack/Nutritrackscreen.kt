@@ -1,8 +1,6 @@
 package com.example.kelompok1_nutritrack
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
@@ -14,7 +12,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Refresh
@@ -24,14 +21,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.PathEffect
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -70,7 +62,7 @@ fun NutriTrackScreen() {
             // 1. Top App Bar sesuai Stitch
             Surface(
                 color = StitchColors.Surface,
-                shadowElevation = 2.dp
+                shadowElevation = 2.dp,
             ) {
                 Row(
                     modifier = Modifier
@@ -78,24 +70,24 @@ fun NutriTrackScreen() {
                         .statusBarsPadding()
                         .padding(horizontal = 16.dp, vertical = 10.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                        horizontalArrangement = Arrangement.spacedBy(10.dp),
                     ) {
-                        Text(text = "\ud83c\udf3f", fontSize = 22.sp)
+                        Text(text = "🌿", fontSize = 22.sp)
                         Column {
                             Text(
                                 text = "NutriTrack",
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.SemiBold,
-                                color = StitchColors.OnSurface
+                                color = StitchColors.OnSurface,
                             )
                             Text(
                                 text = "Edukasi Gizi Seimbang & Keragaman Pangan",
                                 fontSize = 12.sp,
-                                color = StitchColors.OnSurfaceVariant
+                                color = StitchColors.OnSurfaceVariant,
                             )
                         }
                     }
@@ -103,12 +95,12 @@ fun NutriTrackScreen() {
                         Icon(
                             imageVector = Icons.Default.MoreVert,
                             contentDescription = "Menu Lainnya",
-                            tint = StitchColors.OnSurface
+                            tint = StitchColors.OnSurface,
                         )
                     }
                 }
             }
-        }
+        },
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
@@ -116,22 +108,22 @@ fun NutriTrackScreen() {
                 .padding(innerPadding)
                 .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            contentPadding = PaddingValues(top = 12.dp, bottom = 32.dp)
+            contentPadding = PaddingValues(top = 12.dp, bottom = 32.dp),
         ) {
             // 2. Safety & Ethics Disclaimer Banner
             item {
                 Card(
                     shape = RoundedCornerShape(16.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = StitchColors.SurfaceVariant.copy(alpha = 0.5f)
+                        containerColor = StitchColors.SurfaceVariant.copy(alpha = 0.5f),
                     ),
                     border = BorderStroke(1.dp, StitchColors.OutlineVariant.copy(alpha = 0.6f)),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
                     Row(
                         modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        verticalAlignment = Alignment.Top
+                        verticalAlignment = Alignment.Top,
                     ) {
                         Icon(
                             imageVector = Icons.Default.Info,
@@ -139,15 +131,15 @@ fun NutriTrackScreen() {
                             tint = StitchColors.Primary,
                             modifier = Modifier
                                 .size(20.dp)
-                                .padding(top = 2.dp)
+                                .padding(top = 2.dp),
                         )
                         Text(
                             text = buildAnnotatedString {
                                 withStyle(
                                     SpanStyle(
                                         fontWeight = FontWeight.SemiBold,
-                                        color = StitchColors.OnSurface
-                                    )
+                                        color = StitchColors.OnSurface,
+                                    ),
                                 ) {
                                     append("Catatan: ")
                                 }
@@ -155,7 +147,7 @@ fun NutriTrackScreen() {
                             },
                             fontSize = 12.sp,
                             lineHeight = 16.sp,
-                            color = StitchColors.OnSurfaceVariant
+                            color = StitchColors.OnSurfaceVariant,
                         )
                     }
                 }
@@ -173,24 +165,24 @@ fun NutriTrackScreen() {
                     colors = CardDefaults.cardColors(containerColor = StitchColors.SurfaceContainerLowest),
                     border = BorderStroke(1.dp, StitchColors.OutlineVariant.copy(alpha = 0.5f)),
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
                     Column(
                         modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(14.dp)
+                        verticalArrangement = Arrangement.spacedBy(14.dp),
                     ) {
                         // Header Form
                         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                horizontalArrangement = Arrangement.spacedBy(6.dp),
                             ) {
-                                Text("\ud83d\udcdd", fontSize = 16.sp)
+                                Text("📝", fontSize = 16.sp)
                                 Text(
                                     text = "Tambah Catatan Makanan",
                                     fontSize = 16.sp,
                                     fontWeight = FontWeight.Medium,
-                                    color = StitchColors.OnSurface
+                                    color = StitchColors.OnSurface,
                                 )
                             }
                             HorizontalDivider(color = StitchColors.OutlineVariant.copy(alpha = 0.3f))
@@ -202,13 +194,13 @@ fun NutriTrackScreen() {
                                 text = "1. Waktu Makan:",
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Medium,
-                                color = StitchColors.OnSurface
+                                color = StitchColors.OnSurface,
                             )
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .horizontalScroll(rememberScrollState()),
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
                             ) {
                                 MealTime.entries.forEach { meal ->
                                     val isSelected = selectedMealTime == meal
@@ -218,14 +210,14 @@ fun NutriTrackScreen() {
                                         border = if (isSelected) null else BorderStroke(1.dp, StitchColors.OutlineVariant),
                                         modifier = Modifier
                                             .clip(CircleShape)
-                                            .clickable { selectedMealTime = meal }
+                                            .clickable { selectedMealTime = meal },
                                     ) {
                                         Text(
                                             text = meal.label,
                                             fontSize = 12.sp,
                                             fontWeight = FontWeight.Medium,
                                             color = if (isSelected) StitchColors.OnPrimary else StitchColors.Secondary,
-                                            modifier = Modifier.padding(horizontal = 14.dp, vertical = 7.dp)
+                                            modifier = Modifier.padding(horizontal = 14.dp, vertical = 7.dp),
                                         )
                                     }
                                 }
@@ -245,7 +237,7 @@ fun NutriTrackScreen() {
                                     Text(
                                         "Contoh: Nasi Merah, Dada Ayam, Bayam",
                                         fontSize = 13.sp,
-                                        color = StitchColors.Outline
+                                        color = StitchColors.Outline,
                                     )
                                 },
                                 singleLine = true,
@@ -254,9 +246,9 @@ fun NutriTrackScreen() {
                                     focusedBorderColor = StitchColors.Primary,
                                     unfocusedBorderColor = StitchColors.OutlineVariant,
                                     focusedContainerColor = StitchColors.SurfaceContainerLowest,
-                                    unfocusedContainerColor = StitchColors.SurfaceContainerLowest
+                                    unfocusedContainerColor = StitchColors.SurfaceContainerLowest,
                                 ),
-                                modifier = Modifier.fillMaxWidth()
+                                modifier = Modifier.fillMaxWidth(),
                             )
                         }
 
@@ -265,7 +257,7 @@ fun NutriTrackScreen() {
                             RequiredFieldLabel("3. Kelompok Makanan")
                             FlowRow(
                                 horizontalArrangement = Arrangement.spacedBy(8.dp),
-                                verticalArrangement = Arrangement.spacedBy(8.dp)
+                                verticalArrangement = Arrangement.spacedBy(8.dp),
                             ) {
                                 FoodGroup.entries.forEach { group ->
                                     val isSelected = selectedFoodGroup == group
@@ -275,14 +267,14 @@ fun NutriTrackScreen() {
                                         border = if (isSelected) null else BorderStroke(1.dp, StitchColors.OutlineVariant),
                                         modifier = Modifier
                                             .clip(CircleShape)
-                                            .clickable { selectedFoodGroup = group }
+                                            .clickable { selectedFoodGroup = group },
                                     ) {
                                         Text(
                                             text = group.label,
                                             fontSize = 12.sp,
                                             fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal,
                                             color = if (isSelected) StitchColors.OnSecondaryContainer else StitchColors.Secondary,
-                                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp)
+                                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
                                         )
                                     }
                                 }
@@ -296,32 +288,32 @@ fun NutriTrackScreen() {
                                 shape = RoundedCornerShape(12.dp),
                                 color = StitchColors.SurfaceContainerLow,
                                 border = BorderStroke(1.dp, StitchColors.OutlineVariant.copy(alpha = 0.6f)),
-                                modifier = Modifier.fillMaxWidth()
+                                modifier = Modifier.fillMaxWidth(),
                             ) {
                                 Row(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(horizontal = 12.dp, vertical = 8.dp),
                                     horizontalArrangement = Arrangement.SpaceBetween,
-                                    verticalAlignment = Alignment.CenterVertically
+                                    verticalAlignment = Alignment.CenterVertically,
                                 ) {
                                     Column(modifier = Modifier.weight(1f)) {
                                         Text(
                                             text = "Takaran Porsi",
                                             fontSize = 14.sp,
                                             fontWeight = FontWeight.Medium,
-                                            color = StitchColors.OnSurface
+                                            color = StitchColors.OnSurface,
                                         )
                                         Text(
                                             text = "Ketik angka atau tekan - / +",
                                             fontSize = 11.sp,
-                                            color = StitchColors.OnSurfaceVariant
+                                            color = StitchColors.OnSurfaceVariant,
                                         )
                                     }
 
                                     Row(
                                         verticalAlignment = Alignment.CenterVertically,
-                                        horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                        horizontalArrangement = Arrangement.spacedBy(6.dp),
                                     ) {
                                         // Tombol Kurang (-)
                                         FilledIconButton(
@@ -334,13 +326,13 @@ fun NutriTrackScreen() {
                                             modifier = Modifier.size(34.dp),
                                             colors = IconButtonDefaults.filledIconButtonColors(
                                                 containerColor = StitchColors.SurfaceContainerLowest,
-                                                contentColor = StitchColors.OnSurface
-                                            )
+                                                contentColor = StitchColors.OnSurface,
+                                            ),
                                         ) {
-                                            Text("\u2212", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                                            Text("−", fontWeight = FontWeight.Bold, fontSize = 18.sp)
                                         }
 
-                                        // Kotak Input Porsi (Agar Skenario Uji 4 & 5: input huruf & negatif bisa diuji dosen)
+                                        // Kotak Input Porsi
                                         OutlinedTextField(
                                             value = portionInput,
                                             onValueChange = {
@@ -352,16 +344,16 @@ fun NutriTrackScreen() {
                                             textStyle = LocalTextStyle.current.copy(
                                                 textAlign = TextAlign.Center,
                                                 fontWeight = FontWeight.SemiBold,
-                                                fontSize = 14.sp
+                                                fontSize = 14.sp,
                                             ),
                                             shape = RoundedCornerShape(10.dp),
                                             colors = OutlinedTextFieldDefaults.colors(
                                                 focusedContainerColor = StitchColors.SurfaceContainerLowest,
                                                 unfocusedContainerColor = StitchColors.SurfaceContainerLowest,
                                                 focusedBorderColor = StitchColors.Primary,
-                                                unfocusedBorderColor = StitchColors.OutlineVariant
+                                                unfocusedBorderColor = StitchColors.OutlineVariant,
                                             ),
-                                            modifier = Modifier.width(76.dp)
+                                            modifier = Modifier.width(76.dp),
                                         )
 
                                         // Tombol Tambah (+)
@@ -375,13 +367,13 @@ fun NutriTrackScreen() {
                                             modifier = Modifier.size(34.dp),
                                             colors = IconButtonDefaults.filledIconButtonColors(
                                                 containerColor = StitchColors.SurfaceContainerLowest,
-                                                contentColor = StitchColors.OnSurface
-                                            )
+                                                contentColor = StitchColors.OnSurface,
+                                            ),
                                         ) {
                                             Icon(
                                                 imageVector = Icons.Default.Add,
                                                 contentDescription = "Tambah Porsi",
-                                                modifier = Modifier.size(18.dp)
+                                                modifier = Modifier.size(18.dp),
                                             )
                                         }
                                     }
@@ -395,7 +387,7 @@ fun NutriTrackScreen() {
                                 text = "5. Catatan (Opsional)",
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Medium,
-                                color = StitchColors.OnSurface
+                                color = StitchColors.OnSurface,
                             )
                             OutlinedTextField(
                                 value = notesInput,
@@ -404,7 +396,7 @@ fun NutriTrackScreen() {
                                     Text(
                                         "Contoh: Tanpa santan / dikukus / bumbu ringan",
                                         fontSize = 13.sp,
-                                        color = StitchColors.Outline
+                                        color = StitchColors.Outline,
                                     )
                                 },
                                 singleLine = true,
@@ -413,36 +405,37 @@ fun NutriTrackScreen() {
                                     focusedBorderColor = StitchColors.Primary,
                                     unfocusedBorderColor = StitchColors.OutlineVariant,
                                     focusedContainerColor = StitchColors.SurfaceContainerLowest,
-                                    unfocusedContainerColor = StitchColors.SurfaceContainerLowest
+                                    unfocusedContainerColor = StitchColors.SurfaceContainerLowest,
                                 ),
-                                modifier = Modifier.fillMaxWidth()
+                                modifier = Modifier.fillMaxWidth(),
                             )
                         }
 
-                        // Kotak Pesan Validasi Error (Muncul saat input tidak valid)
-                        if (errorMessage != null) {
+                        // Kotak Pesan Validasi Error
+                        val currentError = errorMessage
+                        if (currentError != null) {
                             Surface(
                                 shape = RoundedCornerShape(12.dp),
                                 color = StitchColors.ErrorContainer.copy(alpha = 0.7f),
                                 border = BorderStroke(1.dp, StitchColors.Error.copy(alpha = 0.3f)),
-                                modifier = Modifier.fillMaxWidth()
+                                modifier = Modifier.fillMaxWidth(),
                             ) {
                                 Row(
                                     modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
                                     verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp),
                                 ) {
                                     Icon(
                                         imageVector = Icons.Default.Warning,
                                         contentDescription = "Error",
                                         tint = StitchColors.Error,
-                                        modifier = Modifier.size(18.dp)
+                                        modifier = Modifier.size(18.dp),
                                     )
                                     Text(
-                                        text = errorMessage!!,
+                                        text = currentError,
                                         fontSize = 12.sp,
                                         fontWeight = FontWeight.Medium,
-                                        color = StitchColors.OnErrorContainer
+                                        color = StitchColors.OnErrorContainer,
                                     )
                                 }
                             }
@@ -453,23 +446,23 @@ fun NutriTrackScreen() {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(top = 4.dp),
-                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                            horizontalArrangement = Arrangement.spacedBy(12.dp),
                         ) {
                             OutlinedButton(
                                 onClick = { resetForm() },
                                 shape = CircleShape,
                                 border = BorderStroke(1.dp, StitchColors.Outline),
                                 colors = ButtonDefaults.outlinedButtonColors(
-                                    contentColor = StitchColors.Secondary
+                                    contentColor = StitchColors.Secondary,
                                 ),
                                 modifier = Modifier
                                     .weight(1f)
-                                    .height(48.dp)
+                                    .height(48.dp),
                             ) {
                                 Icon(
                                     imageVector = Icons.Default.Refresh,
                                     contentDescription = "Reset",
-                                    modifier = Modifier.size(18.dp)
+                                    modifier = Modifier.size(18.dp),
                                 )
                                 Spacer(modifier = Modifier.width(6.dp))
                                 Text("RESET", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
@@ -479,7 +472,7 @@ fun NutriTrackScreen() {
                                 onClick = {
                                     val validationError = NutriTrackLogic.validateInput(
                                         foodName = foodNameInput,
-                                        portionText = portionInput
+                                        portionText = portionInput,
                                     )
                                     if (validationError != null) {
                                         errorMessage = validationError
@@ -490,7 +483,7 @@ fun NutriTrackScreen() {
                                             foodName = foodNameInput.trim(),
                                             foodGroup = selectedFoodGroup,
                                             portion = validPortion,
-                                            notes = notesInput.trim()
+                                            notes = notesInput.trim(),
                                         )
                                         foodRecords.add(0, newRecord)
                                         resetForm()
@@ -499,16 +492,16 @@ fun NutriTrackScreen() {
                                 shape = CircleShape,
                                 colors = ButtonDefaults.buttonColors(
                                     containerColor = StitchColors.Primary,
-                                    contentColor = StitchColors.OnPrimary
+                                    contentColor = StitchColors.OnPrimary,
                                 ),
                                 modifier = Modifier
                                     .weight(1f)
-                                    .height(48.dp)
+                                    .height(48.dp),
                             ) {
                                 Icon(
                                     imageVector = Icons.Default.Add,
                                     contentDescription = "Tambah",
-                                    modifier = Modifier.size(18.dp)
+                                    modifier = Modifier.size(18.dp),
                                 )
                                 Spacer(modifier = Modifier.width(6.dp))
                                 Text("TAMBAH", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
@@ -525,45 +518,44 @@ fun NutriTrackScreen() {
                         .fillMaxWidth()
                         .padding(top = 4.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
                     ) {
                         Text(
                             text = "Riwayat Makan Hari Ini",
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
-                            color = StitchColors.OnSurface
+                            color = StitchColors.OnSurface,
                         )
                         Surface(
                             shape = CircleShape,
-                            color = if (foodRecords.isEmpty()) StitchColors.SurfaceVariant else StitchColors.PrimaryFixed
+                            color = if (foodRecords.isEmpty()) StitchColors.SurfaceVariant else StitchColors.PrimaryFixed,
                         ) {
                             Text(
-                                text = "${foodRecords.size}",
+                                text = foodRecords.size.toString(),
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = if (foodRecords.isEmpty()) StitchColors.OnSurfaceVariant else StitchColors.OnPrimaryFixedVariant,
-                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp)
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
                             )
                         }
                     }
                 }
             }
 
-            // 6. Empty State atau Populated List (LazyColumn Items)
+            // 6. Empty State atau Populated List
             if (foodRecords.isEmpty()) {
                 item {
                     StitchEmptyStateCard()
                 }
             } else {
                 items(foodRecords, key = { it.id }) { record ->
-                    StitchHistoryItemCard(
-                        record = record,
-                        onDelete = { foodRecords.remove(record) }
-                    )
+                    StitchHistoryItemCard(record = record) {
+                        foodRecords.remove(record)
+                    }
                 }
             }
         }

@@ -2,38 +2,23 @@ package com.example.kelompok1_nutritrack
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
@@ -50,7 +35,7 @@ fun RequiredFieldLabel(text: String) {
         },
         fontSize = 12.sp,
         fontWeight = FontWeight.Medium,
-        color = StitchColors.OnSurface
+        color = StitchColors.OnSurface,
     )
 }
 
@@ -61,41 +46,41 @@ fun StitchSummaryCard(summary: NutriSummary) {
         colors = CardDefaults.cardColors(containerColor = StitchColors.SurfaceContainerLowest),
         border = BorderStroke(1.dp, StitchColors.OutlineVariant.copy(alpha = 0.5f)),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(14.dp)
+            verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
             // Header Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
                 ) {
                     Text("📊", fontSize = 16.sp)
                     Text(
                         text = "Ringkasan Gizi Harian",
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Medium,
-                        color = StitchColors.OnSurface
+                        color = StitchColors.OnSurface,
                     )
                 }
                 // Status Pill Badge ('Belum Bervariasi' vs 'Cukup Bervariasi')
                 Surface(
                     shape = CircleShape,
-                    color = if (summary.isDiverse) StitchColors.PrimaryFixed else StitchColors.TertiaryFixed
+                    color = if (summary.isDiverse) StitchColors.PrimaryFixed else StitchColors.TertiaryFixed,
                 ) {
                     Text(
                         text = summary.diversityStatus,
                         fontSize = 11.sp,
                         fontWeight = FontWeight.Medium,
                         color = if (summary.isDiverse) StitchColors.OnPrimaryFixedVariant else StitchColors.OnTertiaryFixed,
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
                     )
                 }
             }
@@ -104,18 +89,18 @@ fun StitchSummaryCard(summary: NutriSummary) {
             Surface(
                 shape = RoundedCornerShape(12.dp),
                 color = StitchColors.SurfaceContainerLow.copy(alpha = 0.7f),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(IntrinsicSize.Min)
                         .padding(vertical = 12.dp),
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Column(
                         modifier = Modifier.weight(1f),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Text("Catatan", fontSize = 12.sp, color = StitchColors.OnSurfaceVariant)
                         Spacer(modifier = Modifier.height(2.dp))
@@ -123,18 +108,18 @@ fun StitchSummaryCard(summary: NutriSummary) {
                             text = "${summary.totalRecords} Makanan",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.SemiBold,
-                            color = StitchColors.OnSurface
+                            color = StitchColors.OnSurface,
                         )
                     }
 
                     VerticalDivider(
                         color = StitchColors.OutlineVariant.copy(alpha = 0.6f),
-                        modifier = Modifier.fillMaxHeight()
+                        modifier = Modifier.fillMaxHeight(),
                     )
 
                     Column(
                         modifier = Modifier.weight(1f),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Text("Kelompok", fontSize = 12.sp, color = StitchColors.OnSurfaceVariant)
                         Spacer(modifier = Modifier.height(2.dp))
@@ -142,18 +127,18 @@ fun StitchSummaryCard(summary: NutriSummary) {
                             text = "${summary.distinctGroupsCount} / 5 Jenis",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.SemiBold,
-                            color = StitchColors.Primary
+                            color = StitchColors.Primary,
                         )
                     }
 
                     VerticalDivider(
                         color = StitchColors.OutlineVariant.copy(alpha = 0.6f),
-                        modifier = Modifier.fillMaxHeight()
+                        modifier = Modifier.fillMaxHeight(),
                     )
 
                     Column(
                         modifier = Modifier.weight(1f),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Text("Total Porsi", fontSize = 12.sp, color = StitchColors.OnSurfaceVariant)
                         Spacer(modifier = Modifier.height(2.dp))
@@ -161,7 +146,7 @@ fun StitchSummaryCard(summary: NutriSummary) {
                             text = "${NutriTrackLogic.formatPorsi(summary.totalPortions)} Porsi",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.SemiBold,
-                            color = StitchColors.OnSurface
+                            color = StitchColors.OnSurface,
                         )
                     }
                 }
@@ -172,7 +157,7 @@ fun StitchSummaryCard(summary: NutriSummary) {
             // Educational Insight Tip
             Row(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
-                verticalAlignment = Alignment.Top
+                verticalAlignment = Alignment.Top,
             ) {
                 Text("💡", fontSize = 14.sp)
                 Text(
@@ -180,8 +165,8 @@ fun StitchSummaryCard(summary: NutriSummary) {
                         withStyle(
                             SpanStyle(
                                 fontWeight = FontWeight.SemiBold,
-                                color = StitchColors.OnSurface
-                            )
+                                color = StitchColors.OnSurface,
+                            ),
                         ) {
                             append("Tips: ")
                         }
@@ -189,7 +174,7 @@ fun StitchSummaryCard(summary: NutriSummary) {
                     },
                     fontSize = 12.sp,
                     lineHeight = 16.sp,
-                    color = StitchColors.OnSurfaceVariant
+                    color = StitchColors.OnSurfaceVariant,
                 )
             }
         }
@@ -203,56 +188,56 @@ fun StitchHistoryItemCard(record: FoodRecord, onDelete: () -> Unit) {
         colors = CardDefaults.cardColors(containerColor = StitchColors.SurfaceContainerLowest),
         border = BorderStroke(1.dp, StitchColors.OutlineVariant.copy(alpha = 0.6f)),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
     ) {
         Column(
             modifier = Modifier.padding(14.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.Top
+                verticalAlignment = Alignment.Top,
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(
                         text = "🕒 ${record.timestamp}",
                         fontSize = 12.sp,
-                        color = StitchColors.OnSurfaceVariant
+                        color = StitchColors.OnSurfaceVariant,
                     )
                     Text(
                         text = record.foodName,
                         fontSize = 15.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = StitchColors.OnSurface
+                        color = StitchColors.OnSurface,
                     )
                 }
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
                 ) {
                     Surface(
                         shape = CircleShape,
-                        color = StitchColors.SecondaryContainer
+                        color = StitchColors.SecondaryContainer,
                     ) {
                         Text(
                             text = "${NutriTrackLogic.formatPorsi(record.portion)} Porsi",
                             fontSize = 11.sp,
                             fontWeight = FontWeight.SemiBold,
                             color = StitchColors.OnSecondaryContainer,
-                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
                         )
                     }
                     IconButton(
                         onClick = onDelete,
-                        modifier = Modifier.size(32.dp)
+                        modifier = Modifier.size(32.dp),
                     ) {
                         Icon(
                             imageVector = Icons.Default.Delete,
                             contentDescription = "Hapus Catatan",
                             tint = StitchColors.OnSurfaceVariant,
-                            modifier = Modifier.size(18.dp)
+                            modifier = Modifier.size(18.dp),
                         )
                     }
                 }
@@ -262,28 +247,28 @@ fun StitchHistoryItemCard(record: FoodRecord, onDelete: () -> Unit) {
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 Surface(
                     shape = RoundedCornerShape(6.dp),
-                    color = StitchColors.SurfaceContainer
+                    color = StitchColors.SurfaceContainer,
                 ) {
                     Text(
                         text = record.mealTime.label,
                         fontSize = 11.sp,
                         fontWeight = FontWeight.Medium,
                         color = StitchColors.OnSurfaceVariant,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
                     )
                 }
 
-                val isAnimalOrCarb = record.foodGroup == FoodGroup.KARBOHIDRAT || record.foodGroup == FoodGroup.SAYURAN
+                val isPlantOrCarb = ((record.foodGroup == FoodGroup.KARBOHIDRAT) || (record.foodGroup == FoodGroup.SAYURAN))
                 Surface(
                     shape = RoundedCornerShape(6.dp),
-                    color = if (isAnimalOrCarb) StitchColors.PrimaryFixed.copy(alpha = 0.6f) else StitchColors.TertiaryFixed.copy(alpha = 0.6f)
+                    color = if (isPlantOrCarb) StitchColors.PrimaryFixed.copy(alpha = 0.6f) else StitchColors.TertiaryFixed.copy(alpha = 0.6f),
                 ) {
                     Text(
                         text = record.foodGroup.label,
                         fontSize = 11.sp,
                         fontWeight = FontWeight.Medium,
-                        color = if (isAnimalOrCarb) StitchColors.OnPrimaryFixedVariant else StitchColors.OnTertiaryFixed,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                        color = if (isPlantOrCarb) StitchColors.OnPrimaryFixedVariant else StitchColors.OnTertiaryFixed,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
                     )
                 }
             }
@@ -293,7 +278,7 @@ fun StitchHistoryItemCard(record: FoodRecord, onDelete: () -> Unit) {
                     text = "\"${record.notes}\"",
                     fontSize = 12.sp,
                     fontStyle = FontStyle.Italic,
-                    color = StitchColors.OnSurfaceVariant
+                    color = StitchColors.OnSurfaceVariant,
                 )
             }
         }
@@ -308,29 +293,29 @@ fun StitchEmptyStateCard() {
             .fillMaxWidth()
             .background(
                 color = StitchColors.SurfaceContainerLowest.copy(alpha = 0.5f),
-                shape = RoundedCornerShape(16.dp)
+                shape = RoundedCornerShape(16.dp),
             )
             .drawBehind {
                 drawRoundRect(
                     color = dashColor,
                     style = Stroke(
                         width = 2.dp.toPx(),
-                        pathEffect = PathEffect.dashPathEffect(floatArrayOf(15f, 15f), 0f)
+                        pathEffect = PathEffect.dashPathEffect(floatArrayOf(15f, 15f), 0f),
                     ),
-                    cornerRadius = CornerRadius(16.dp.toPx())
+                    cornerRadius = CornerRadius(16.dp.toPx()),
                 )
             }
             .padding(24.dp),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(6.dp)
+            verticalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             Surface(
                 shape = CircleShape,
                 color = StitchColors.SurfaceContainer,
-                modifier = Modifier.size(56.dp)
+                modifier = Modifier.size(56.dp),
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Text("🍱", fontSize = 26.sp)
@@ -341,14 +326,14 @@ fun StitchEmptyStateCard() {
                 text = "Belum Ada Catatan Makanan",
                 fontSize = 14.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = StitchColors.OnSurface
+                color = StitchColors.OnSurface,
             )
             Text(
                 text = "Isi formulir di atas untuk mulai memantau keragaman pangan dan kualitas gizi harian Anda.",
                 fontSize = 12.sp,
                 color = StitchColors.OnSurfaceVariant,
                 textAlign = TextAlign.Center,
-                lineHeight = 16.sp
+                lineHeight = 16.sp,
             )
         }
     }

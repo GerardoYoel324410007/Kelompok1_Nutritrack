@@ -8,7 +8,7 @@ data class NutriSummary(
     val totalPortions: Double,
     val diversityStatus: String,
     val educationalMessage: String,
-    val isDiverse: Boolean
+    val isDiverse: Boolean,
 )
 
 object NutriTrackLogic {
@@ -58,7 +58,7 @@ object NutriTrackLogic {
             totalPortions = totalPortions,
             diversityStatus = diversityStatus,
             educationalMessage = educationalMessage,
-            isDiverse = isDiverse
+            isDiverse = isDiverse,
         )
     }
 }
